@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage/HomePage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -11,11 +11,10 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/movies" element={<MoviesPage />}>
-        <Route path=":movieId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
+        <Route path="cast" element={<MovieCast />} />
+        <Route path="reviews" element={<MovieReviews />} />
       </Route>
+      <Route path="movies/:movieId" element={<MovieDetailsPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
